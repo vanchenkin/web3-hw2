@@ -1,24 +1,21 @@
-# PositiveCTF
+# web3-hw2
 
-A set of tasks for cracking implementations of smart-contracts with typical vulnerabilities.
+Задания:
 
-## Play
+1. Azino777-0.5 +
+2. PrivateRyan-0.5 +
+3. WheelOfFortune-0.5  +
+4. FindMe-0.5 +
+5. CallMeMaybe-1 +
+6. PredictTheFuture-1 +
+7. Lift-1 +
+8. LendingPool-2 +
+9. AntiRugPull-3 
+10. FakeDAO - 2 
+11. DAO - 5
+12. DAO2 - 8 
+13. WrappedEther - 2 +
+14. Metamorphic - 3 
+15. PirateShip - 3 
 
-Visit [positive.com](https://www.positive.com/ctf)
-
-OR
-
-Clone the repository and solve locally, a separate test is made for each problem
-
-<details>
-  <summary>Hints</summary>
-  
-In some cases it may be necessary to write part of the exploit in the `setUp()` function, due to the peculiarities of processing the `SELFDESTRUCT` command in Foundry. 
-  
-</details>
-
-## Disclaimer
-
-All Solidity code, practices and patterns in this repository are for educational purposes only.
-
-DO NOT USE IN PRODUCTION.
+Сумма: 9

