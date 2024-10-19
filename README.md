@@ -11,11 +11,11 @@
 7. Lift-1 +
 8. LendingPool-2 +
 9. AntiRugPull-3 
-10. FakeDAO - 2 
+10. FakeDAO - 2 +
 11. DAO - 5
 12. DAO2 - 8 
 13. WrappedEther - 2 +
 14. Metamorphic - 3 
 15. PirateShip - 3 
 
-Сумма: 9
+Сумма: 11
